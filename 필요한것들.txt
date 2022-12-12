@@ -1,0 +1,10 @@
+/*movie api*/
+https://www.themoviedb.org/
+/*react bootstrap*/
+/*react router*/
+/*redux*/
+/*react redux*/
+/*redux middleware*/
+/*redux devtools*/
+/*react icon*/
+/*react sass*/
