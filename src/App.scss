@@ -1,0 +1,24 @@
+a{
+    text-decoration: none;
+}
+
+.navTop{
+    .nav-item{
+        color: white;
+        margin-left: 20px;
+        transition: 0.3s ease-in;
+        &:hover{
+            opacity: 50%;
+        }
+    }
+    .nav-input{
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid white;
+        border-radius: 0;
+
+    }
+    .form-control:focus{
+        box-shadow: none;
+    }
+}

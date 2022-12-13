@@ -8,3 +8,4 @@ https://www.themoviedb.org/
 /*redux devtools*/
 /*react icon*/
 /*react sass*/
+/*axios*/

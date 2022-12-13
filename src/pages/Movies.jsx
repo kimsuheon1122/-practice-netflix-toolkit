@@ -1,3 +1,4 @@
+/* api를 불러오기 위한 세팅 */
 import React from 'react'
 
 const Movies = () => {
