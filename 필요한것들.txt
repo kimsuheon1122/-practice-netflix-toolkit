@@ -9,3 +9,4 @@ https://www.themoviedb.org/
 /*react icon*/
 /*react sass*/
 /*axios*/
+/*react-multi-carousel*/
