@@ -11,30 +11,46 @@ const APIkey = process.env.REACT_APP_APIKEY;
 
 function getMovies(){
     return async(dispatch) => {
-        const popularMovieApi = await api.get(
-            `/movie/popular?api_key=${APIkey}&language=en-US&page=1`,
-        );
+        try{
+            dispatch({
+                type : "GET_GET_MOVIE_REQUEST"}) // 로딩전 던져줌
+            const popularMovieApi = await api.get(
+                `/movie/popular?api_key=${APIkey}&language=ko-US&page=1`,
+            );
+    
+            const topRatedMovieApi = await api.get(
+                `/movie/top_rated?api_key=${APIkey}&language=ko-US&page=1`,
+            );
+    
+            const upComingMovieApi = await api.get(
+                `/movie/upcoming?api_key=${APIkey}&language=ko-US&page=1`,
+            );
+    /*     let data = await Promise.all([
+            popularMovieApi,
+            topRatedMovieApi,
+            upComingMovieApi
+        ]); */
+        //console.log("data는?", data);
+        //따로 받아오기
+        let [popularMovies, topRatedMovies, upcomingMovies] = await Promise.all([
+            popularMovieApi,
+            topRatedMovieApi,
+            upComingMovieApi
+        ]); /* deconstructing 방식. 받아온 항목들을 하나씩 넣음. */
 
-        const topRatedMovieApi = await api.get(
-            `/movie/top_rated?api_key=${APIkey}&language=en-US&page=1`,
-        );
-
-        const upComingMovieApi = await api.get(
-            `/movie/upcoming?api_key=${APIkey}&language=en-US&page=1`,
-        );
-/*     let data = await Promise.all([
-        popularMovieApi,
-        topRatedMovieApi,
-        upComingMovieApi
-    ]); */
-    //console.log("data는?", data);
-    //따로 받아오기
-    let [popularMovie, topRatedMovie, upComingMovie] = await Promise.all([
-        popularMovieApi,
-        topRatedMovieApi,
-        upComingMovieApi
-    ]); /* deconstructing 방식. 받아온 항목들을 하나씩 넣음. */
-    console.log("popularMovie", popularMovie)
+        /* 데이터 도착 후  */
+        dispatch({
+            type : "GET_MOVIE_SUCCESS",
+            payload : {
+                popularMovies: popularMovies.data,
+                topRatedMovies: topRatedMovies.data,
+                upcomingMovies: upcomingMovies.data,
+            }
+        })
+        }catch(error){ //에러 핸들링
+            dispatch({type:"GET_MOVIE_FAIL"})
+        }
+       
     }
 }
 

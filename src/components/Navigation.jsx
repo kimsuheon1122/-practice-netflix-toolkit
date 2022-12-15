@@ -7,7 +7,7 @@ const Navigation = () => {
         <Navbar bg="dark" expand="lg" variant="dark" className = "navTop">
             <Container fluid>
                 <Navbar.Brand href="#">
-                    <img width = {90} src="Netflix.png" alt="logo" />
+                    <img width = {90} src="AWESOME FILM.png" alt="logo" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
@@ -16,19 +16,19 @@ const Navigation = () => {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Link to = "/" className = "nav-item">HOME </Link>
-                    <Link to="/movies" className = "nav-item">MOVIES </Link>
-                    <Link to="#" className = "nav-item">NEW & POPULAR </Link>
-                    <Link to="#" className = "nav-item">MY LIST </Link>
+                    <Link to = "/" className = "nav-item">홈 </Link>
+                    <Link to="/movies" className = "nav-item">영화 </Link>
+                    <Link to="#" className = "nav-item">새로운 & 인기 영화 </Link>
+                    <Link to="#" className = "nav-item">찜한 목록 </Link>
                 </Nav>
                 <Form className="d-flex">
                     <Form.Control
                     type="search"
-                    placeholder="Search"
+                    placeholder="검색어를 입력해주세요"
                     className="nav-input"
                     aria-label="Search"
                     />
-                    <Button variant="outline-danger">Search</Button>
+                    <Button variant="outline-danger">검색</Button>
                 </Form>
                 </Navbar.Collapse>
             </Container>
