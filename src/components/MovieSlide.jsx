@@ -30,7 +30,12 @@ let movieIndex = 0;
 
 	return (
 		<div>
-      <Carousel responsive={responsive}>
+    <Carousel 
+		responsive={responsive}
+		autoPlay={true}
+		autoPlaySpeed={3500}
+		infinite={true}
+		>
 				{movie.results.map((item) => (
 					<div className="card-wrap">
 						<MovieCard item={item} movieIndex = {movieIndex+=1}/>

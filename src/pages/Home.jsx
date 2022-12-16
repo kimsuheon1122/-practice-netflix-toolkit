@@ -39,7 +39,7 @@ const Home = () => {
 	return (
     <>
       <div>
-        {popularMovies.results && <Banner movie={upcomingMovies.results[13]} />}
+        {popularMovies.results && <Banner movie={upcomingMovies.results[11]} />}
         <div className="slide-container">
                 <h2>인기 영화</h2>
                 <MovieSlide movie={popularMovies}/>
