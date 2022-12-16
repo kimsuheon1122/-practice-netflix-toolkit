@@ -3,6 +3,8 @@ import { Badge } from 'react-bootstrap'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { BsStarFill, BsStarHalf } from 'react-icons/bs';
+import { useRef } from 'react';
+import { useEffect } from 'react';
 
 const MovieCard = ({item, movieIndex}) => {
     let star_array = [];
@@ -26,10 +28,7 @@ const MovieCard = ({item, movieIndex}) => {
         navigate(`/movies/${item.id}`);
     }
 
-    //카드 over시 제목커짐
-    const overTitle = {
-        fontSize : "30px"
-    }
+
   return (
     <div onClick={gotoDetail}>
 
@@ -42,12 +41,11 @@ const MovieCard = ({item, movieIndex}) => {
         >
             <div className="card-info"
                 onMouseOver={()=>{
-                    console.log("마우스오버");
-                    document.querySelector(".card-title").style={overTitle}
+                    
                 }}>
                 <p>
                 {item.genre_ids.map((id)=>(
-                    <Badge bg = "danger">{genreList.find((item)=>item.id === id).name}</Badge>
+                    <Badge bg = "danger"> # {genreList.find((item)=>item.id === id).name}</Badge>
                 ))}
                 </p>
                 <div className="card-infoSub">

@@ -5,6 +5,8 @@ https://developers.themoviedb.org/3/movies/get-popular-movies
 미들웨어는 함수가 함수를 return(reducer로 보내야 하기 때문)
 
 장르 추가
+
+유튜브 추가
 */
 
 import MovieDetail from "../../pages/MovieDetail";
@@ -59,21 +61,27 @@ function getMovies(){
 /* 3개의 데이터를 병렬로 동시에 불러옴 */
 
 /* 디테일 데이터 가져오기 */
-
 function getDetailMovies(id){
     return async (dispatch) => {
         try{
-            dispatch({type:"GET_D_MOVIE_REQUEST"})
+            dispatch({
+                type:"GET_D_MOVIE_REQUEST"
+            })
             const detailMovieApi = await api.get(
             `/movie/${id}?api_key=${APIkey}&language=ko-US`
             );
-
-            let [detailMovies] = await Promise.all(
-                [detailMovieApi]);
+            const trailerVideoApi = await api.get(
+                `/movie/${id}/videos?api_key=${APIkey}&language=ko-US`
+            )
+            let [detailMovies, trailerVideo] = await Promise.all(
+                [detailMovieApi, trailerVideoApi]);
 
             dispatch({
                 type : "GET_D_MOVIE_SUCCESS",
-                payload:{detailMovies : detailMovies.data}
+                payload:{
+                    detailMovies : detailMovies.data,
+                    trailerVideo : trailerVideo.data
+                }
             })
         }
         catch(error){

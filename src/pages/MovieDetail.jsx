@@ -11,9 +11,11 @@ import { movieAction } from '../redux/action/movieAction';
 const MovieDetail = () => {
   const {id} = useParams();
   const dispatch = useDispatch();
-  const {detailMovies, loading} = useSelector((state)=>state.movie);
+  const {detailMovies, loading, trailerVideo} = useSelector((state)=>state.movie);
+  
   useEffect(()=>{
     dispatch(movieAction.getDetailMovies(id));
+    window.scrollTo(0,0)
   }, []);
 
   if(loading){
@@ -29,7 +31,7 @@ const MovieDetail = () => {
 
   return (
     <div>
-      <MovieExplain item = {detailMovies}/>
+      <MovieExplain item = {detailMovies} videoId = {trailerVideo}/>
       <br />
       <br />
       <h1>영화리뷰를 넣을 곳</h1>

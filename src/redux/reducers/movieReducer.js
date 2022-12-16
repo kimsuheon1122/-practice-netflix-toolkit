@@ -1,5 +1,8 @@
-//리듀서 - 3개 API를 넘겨받음
-//로딩스피너 부분 추가
+/* 리듀서 - 3개 API를 넘겨받음
+로딩스피너 부분 추가 
+장르추가
+디테일추가
+예고편추가*/
 let initialState = {
 	popularMovies: {},
 	topRatedMovies: {},
@@ -40,12 +43,13 @@ function movieReducer(state = initialState, action) {
 			return{
 				...state,
 				detailMovies : payload.detailMovies,
+				trailerVideo : payload.trailerVideo, //->devTool로 정보 확인 
 				loading : false
 			}
 		case "GET_D_MOVIE_FAIL" : 
 		return{
 			...state,
-			loading : true
+			loading : false
 		}
 		default:
 			return { ...state };
