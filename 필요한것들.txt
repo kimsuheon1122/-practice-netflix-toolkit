@@ -10,3 +10,5 @@ https://www.themoviedb.org/
 /*react sass*/
 /*axios*/
 /*react-multi-carousel*/
+사이트 배포 
+https://app.netlify.com/sites/awesomefilm/settings/domain
