@@ -6,6 +6,7 @@ import Movies from './pages/Movies'
 import Navigation from './components/Navigation'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.scss"
+import Footer from './components/Footer'
 
 export default function App() {
 
@@ -18,6 +19,7 @@ export default function App() {
         <Route path='/movies' element={<Movies />}></Route>
         <Route path='/movies/:id' element={<MovieDetail />}></Route>
       </Routes>
+      <Footer />
     </div>
   )
 }

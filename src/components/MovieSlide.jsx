@@ -37,8 +37,10 @@ let movieIndex = 0;
 		infinite={true}
 		>
 				{movie.results.map((item) => (
-					<div className="card-wrap">
-						<MovieCard item={item} movieIndex = {movieIndex+=1}/>
+					<div className="card-wrap" key = {item.id}>
+						<MovieCard 
+						item={item} 
+						movieIndex = {movieIndex+=1}/>
 					</div>
 				)
         )

@@ -1,10 +1,8 @@
 import React from 'react'
 import { useEffect } from 'react';
-import { ModalFooter } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router';
 import { SyncLoader } from 'react-spinners';
-import Footer from '../components/Footer';
 import MovieExplain from '../components/MovieExplain';
 import { movieAction } from '../redux/action/movieAction';
 
@@ -14,9 +12,9 @@ const MovieDetail = () => {
   const {detailMovies, loading, trailerVideo} = useSelector((state)=>state.movie);
   
   useEffect(()=>{
-    dispatch(movieAction.getDetailMovies(id));
+    dispatch(movieAction.getMoviesDetail(id));
     window.scrollTo(0,0)
-  }, []);
+  }, [id]);
 
   if(loading){
     return(
@@ -35,7 +33,6 @@ const MovieDetail = () => {
       <br />
       <br />
       <h1>영화리뷰를 넣을 곳</h1>
-      <Footer></Footer>
     </div>
   )
 }

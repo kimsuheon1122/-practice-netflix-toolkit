@@ -3,8 +3,6 @@ import { Badge } from 'react-bootstrap'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { BsStarFill, BsStarHalf } from 'react-icons/bs';
-import { useRef } from 'react';
-import { useEffect } from 'react';
 
 const MovieCard = ({item, movieIndex}) => {
     let star_array = [];
@@ -45,7 +43,9 @@ const MovieCard = ({item, movieIndex}) => {
                 }}>
                 <p>
                 {item.genre_ids.map((id)=>(
-                    <Badge bg = "danger"> # {genreList.find((item)=>item.id === id).name}</Badge>
+                    <Badge bg = "danger"> 
+                    # {genreList.find((item)=>item.id === id)?.name}
+                    </Badge>
                 ))}
                 </p>
                 <div className="card-infoSub">

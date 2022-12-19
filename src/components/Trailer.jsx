@@ -24,10 +24,17 @@ const Trailer = ({item}) => {
         /* {item.results[0].key} - 무조건 첫번째 유튜브를 보여줌. 
   official Trailer가 있을때와 없을때를 구분 */
 
-    const official = item.results?.find((item)=>{
-        if(item.name === "Official Trailer"){
-            return item;
-        }})
+  /* official trailer가 있을 때  */
+    const trailer = item.results?.find((item)=>{
+      if(item.name === "Official Trailer")
+        return item;
+    });
+
+    /* trailer가 있을 때 */
+    const trailer2 = item.results?.find((item)=>{
+      if(item.type === "Trailer")
+      return item;
+    });
 
   return (
     <div>
@@ -47,12 +54,10 @@ const Trailer = ({item}) => {
     dialogClassName="modal-90w"
     aria-labelledby="example-custom-modal-styling-title"
   >
-    <Modal.Header closeButton>
-
-    </Modal.Header >
+    <Modal.Header closeButton></Modal.Header >
     <Modal.Body>
         <YouTube 
-            videoId={official?.key || item.results[0].key} 
+            videoId={trailer?.key ? trailer?.key : trailer2.key} 
             opts={opts} 
             onReady={_onReady} 
         />

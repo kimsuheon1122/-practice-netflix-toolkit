@@ -8,7 +8,6 @@ import { movieAction } from "../redux/action/movieAction";
 import Banner from "../components/Banner";
 import MovieSlide from "../components/MovieSlide";
 import { SyncLoader } from "react-spinners";
-import Footer from "../components/Footer";
 
 const Home = () => {
 	const dispatch = useDispatch();
@@ -49,7 +48,6 @@ const Home = () => {
                 <MovieSlide movie={upcomingMovies} />
         </div>
       </div>
-      <Footer />
     </>
 	);
 };
